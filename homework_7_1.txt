@@ -1,0 +1,28 @@
+'''
+Author:Jiaqi Lin
+Date:2019-4-9
+Function:随机产生50个数字，存一个列表中 list，然后从小到大排序，然后写入文件，
+         然后从文件中读取出来文件内容，然后反序，在追加到文件的下一行中.
+'''
+#产生50个随机变量，并存放在列表b中，然后利用从小到大排序
+import random
+b=[]
+for i in range(50):
+    b.append(int(random.random()*100))
+b.sort()
+
+#将列表b中的元素放入文件中
+#w:打开一个文件，只写
+f=open('F:\\test_1.txt','w')
+for i in b:
+    f.write(str(i)+' ')
+f.write('\n')
+f.close()
+
+#读取文件并写入
+f=open('F:\\test_1.txt','r+')
+a=f.readline().strip().split(' ')  
+a.reverse()
+for j in a:
+    f.write(j +' ')
+f.close()

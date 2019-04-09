@@ -1,0 +1,17 @@
+'''
+Author:Jiaqi Lin
+Date:2019-3-31
+Function:生成一个CSV文件，并在Excel中打开
+'''
+
+import pandas as  pd
+
+a=[1,2,3,4,5]
+b=['mayi','jack','tom','rain','hanmeimei']
+c=[18,21,25,19,23]
+d=[99,89,95,80,81]
+
+dataframe = pd.DataFrame({'No.':a,'Name':b,'Age':c,'Score':d})
+dataframe = dataframe[['No.','Name','Age','Score']]  #规定列索引的顺序
+
+dataframe.to_csv("F:\\test.csv",index=False,sep=',')
